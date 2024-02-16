@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const {dbConnection} = require('./config/config');
 const routes = require('./routes/posts');
-const PORT = 3006
+const PORT = 4008
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

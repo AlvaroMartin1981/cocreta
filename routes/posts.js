@@ -5,7 +5,7 @@ const Post = require('../models/Post');
 router.post('/create', async (req, res) => {
     try{
         const posts = await Post.create({...req.body})
-        res.json(posts)
+        res.json({posts})
     }catch(error){
         console.error(error)
     }    
