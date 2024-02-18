@@ -10,7 +10,7 @@ describe('testing/posts', () => {
     test('create a post', async () => {
         let postCount = await Post.countDocuments({});
         expect(postCount).toBe(0);
-        resPost = (await request(app).post('/create')).send(posts).expect(201);
+        resPost = await request(app).post('/create').send(posts).expect(201);
         postCount = await Post.countDocuments({});
         expect(postCount).toBe(1)
     });
