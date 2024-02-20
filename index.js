@@ -1,19 +1,17 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const app = express();
-const {dbConnection} = require('./config/config');
-const routes = require('./routes/posts');
-const PORT = 4008
+const PORT = 8080;
+const { dbConnection } = require('./config/config');
+const routes = require('./routes');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 app.use('/', routes);
 
 dbConnection();
 
-app.listen(PORT, () => {
-    console.log(`Express esta escuchando en http://localhost:${PORT}`)
-})
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
+
+//exportamos la App para poder testerla!!!
 module.exports = app;
